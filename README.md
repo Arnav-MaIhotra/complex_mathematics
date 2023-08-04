@@ -16,7 +16,7 @@ Install with:
 
 **Linear Algebra:**
 
-`from complex_mathematics.linalg import CLASS_NAME`
+`from complex_mathematics.linalg import BLANK`
 
 Eigenvectors:
 
@@ -38,7 +38,7 @@ print(eig.eigenvectors)
 
 **Machine Learning:**
 
-`from complex_mathematics.ml import CLASS_NAME`
+`from complex_mathematics.ml import BLANK`
 
 Linear Regression (Stochastic gradient descent):
 
@@ -57,6 +57,22 @@ model = LinearRegression() #LinearRegression(learning_rate = 0.01, max_iters = 1
 model.fit(X, y, True) #model.fit(X, Y, progress = False)
 
 print(model.predict(10))
+
+```
+
+---
+
+**Algebra:**
+
+`from complex_mathematics.algebra import BLANK`
+
+Quadratic Equation Solver:
+
+```
+
+from complex_mathematics.algebra import quadratic
+
+print(quadratic("-x^2-x+12"))
 
 ```
 
