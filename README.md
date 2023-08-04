@@ -27,7 +27,7 @@ import numpy as np
 
 mat = np.array([[1, 0, 0], [0, 2, 0], [0, 0, 3]])
 
-eig = eigenvector(mat)
+eig = eigenvector(mat) #eigenvector(matrix)
 
 print(eig.eigenvalues)
 print(eig.eigenvectors)
@@ -52,9 +52,9 @@ from complex_mathematics.ml import LinearRegression
 X = np.array([[i] for i in range(-50, 51)])
 y = np.array([2*i + 1 + random.uniform(-1, 1) for i in range(-50, 51)])
 
-model = LinearRegression()
+model = LinearRegression() #LinearRegression(learning_rate = 0.01, max_iters = 10000, tolerance = 1e-10)
 
-model.fit(X, y, True)
+model.fit(X, y, True) #model.fit(X, Y, progress = False)
 
 print(model.predict(10))
 
