@@ -8,6 +8,10 @@
 
 **To get started:**
 
+Install with:
+
+`pip install complex_mathematics`
+
 ---
 
 Linear Algebra:
