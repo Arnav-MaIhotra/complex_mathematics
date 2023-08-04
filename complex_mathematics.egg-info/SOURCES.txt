@@ -1,6 +1,7 @@
 LICENSE
 setup.py
 complex_mathematics/__init__.py
+complex_mathematics/algebra.py
 complex_mathematics/linalg.py
 complex_mathematics/ml.py
 complex_mathematics.egg-info/PKG-INFO
