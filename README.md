@@ -62,4 +62,7 @@ print(model.predict(10))
 
 ---
 
-This module utilizes an MIT license so that it can be freely distributed with no restrictions
+<!-- LICENSE -->
+## License
+
+Distributed under the MIT License. See [LICENSE](https://github.com/Arnav-MaIhotra/complex_mathematics/blob/main/LICENSE) for more information.
