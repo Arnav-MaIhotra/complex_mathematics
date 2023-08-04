@@ -14,7 +14,7 @@ Install with:
 
 ---
 
-Linear Algebra:
+**Linear Algebra:**
 
 `from complex_mathematics.linalg import CLASS_NAME`
 
@@ -36,7 +36,7 @@ print(eig.eigenvectors)
 
 ---
 
-Machine Learning:
+**Machine Learning:**
 
 `from complex_mathematics.ml import CLASS_NAME`
 
