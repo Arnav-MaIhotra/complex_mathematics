@@ -1,5 +1,7 @@
 # complex_mathematics
 
+![Version](https://img.shields.io/badge/version-2.2.1-blue)
+
 ---
 
 **complex_mathematics is a Python module that can be used for many complex math related problems, with concepts from many different topics in mathematics, such as calculus, linear algebra, geometry, algebra, and more. It also has machine learning algorithms such as linear regression and K-Nearest-Neighbors.**
