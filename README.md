@@ -1,6 +1,6 @@
 # complex_mathematics
 
-![Version](https://img.shields.io/badge/version-2.3.3-blue)
+![Version](https://img.shields.io/badge/version-2.4.3-blue)
 
 ---
 
@@ -59,6 +59,30 @@ model = LinearRegression() #LinearRegression(learning_rate = 0.01, max_iters = 1
 model.fit(X, y, True) #model.fit(X, Y, progress = False)
 
 print(model.predict(10))
+
+```
+
+K-Means Clustering:
+
+```
+
+from complex_mathematics.ml import KMeans
+import numpy as np
+
+data = np.array([
+    [2, 3, 4],
+    [3, 5, 6],
+    [4, 4, 5],
+    [2, 6, 3],
+    [7, 2, 1],
+    [6, 4, 2],
+    [8, 5, 4],
+    [9, 4, 3]
+])
+
+model = KMeans(data, 6) #KMeans(data, k, max_iters=100, tolerance=1e-4)
+
+print(model.centroids, model.labels)
 
 ```
 
