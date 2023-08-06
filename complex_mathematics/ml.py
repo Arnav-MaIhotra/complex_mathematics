@@ -1,4 +1,5 @@
 import numpy as np
+import math
 
 class LinearRegression:
 
@@ -60,3 +61,31 @@ class LinearRegression:
 
   def predict(self, x):
     return np.dot(x, self.params) + self.bias
+  
+
+class KMeans:
+  def __init__(self, data, k, max_iters=100, tolerance=1e-4):
+    def dist(p1, p2):
+      return math.sqrt(np.sum((p1 - p2) ** 2))
+    n_samples, n_features = data.shape
+    centroids = data[np.random.choice(n_samples, k, replace=False)]
+    old_centroids = np.zeros((k, n_features))
+    labels = np.zeros(n_samples)
+
+    for _ in range(max_iters):
+      for i in range(n_samples):
+        distances = [dist(data[i], centroid) for centroid in centroids]
+        labels[i] = np.argmin(distances)
+
+      old_centroids[:] = centroids
+
+      for i in range(k):
+        cluster_points = data[labels == i]
+        if len(cluster_points) > 0:
+          centroids[i] = np.mean(cluster_points, axis=0)
+
+      if np.allclose(centroids, old_centroids, rtol=tolerance):
+        break
+
+    self.centroids = centroids
+    self.labels = labels

@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='complex_mathematics',
-    version='2.3.3',
+    version='2.4.3',
     packages=find_packages(),
     install_requires=[
         'numpy', 'scipy'
