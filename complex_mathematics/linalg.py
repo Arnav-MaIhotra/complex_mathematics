@@ -49,3 +49,34 @@ class eigenvector:
     self.eigval()
     self.eigenvectors = None
     self.eigvec()
+
+
+def inverse(matrix):
+    
+    augmented_matrix = np.hstack((matrix, np.identity(matrix.shape[0])))
+    
+    m, n = augmented_matrix.shape
+    for col in range(min(m, n - 1)):
+        pivot_row = col
+
+        for row in range(col + 1, m):
+            if abs(augmented_matrix[row, col]) > abs(augmented_matrix[pivot_row, col]):
+                pivot_row = row
+
+        augmented_matrix[[col, pivot_row]] = augmented_matrix[[pivot_row, col]]
+
+        pivot_elem = augmented_matrix[col, col]
+        if pivot_elem == 0:
+            raise ValueError("Matrix is singular, cannot proceed.")
+
+        augmented_matrix[col] /= pivot_elem
+
+        for row in range(m):
+            if row != col:
+                factor = augmented_matrix[row, col]
+                augmented_matrix[row] -= factor * augmented_matrix[col]
+
+    
+    inverse_matrix = augmented_matrix[:, matrix.shape[0]:]
+
+    return inverse_matrix

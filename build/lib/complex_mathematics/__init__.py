@@ -1,7 +1,7 @@
 # To update: update setup.py, follow version rules and remember to include necessary packages
-# 
+
 # After that, run this: python setup.py sdist bdist_wheel
-#
+
 # Then this: twine upload dist/*
 
 #MAJOR version: This number is incremented when backward-incompatible changes are introduced. This means that the new version might not be compatible with previous versions, and existing code that relies on the older version might break when using the new one.
