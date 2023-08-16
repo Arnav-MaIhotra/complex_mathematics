@@ -1,6 +1,6 @@
 # complex_mathematics
 
-![Version](https://img.shields.io/badge/version-3.5.4-blue)
+![Version](https://img.shields.io/badge/version-3.6.4-blue)
 
 ---
 
@@ -154,6 +154,23 @@ It returns the solutions in a numpy array
 from complex_mathematics.algebra import quadratic
 
 print(quadratic("-x^2-x+12"))
+
+```
+
+Polynomial Solver:
+
+The polynomial solver has four parameters, a numpy array of the coefficients of the equation, the step (how much the current value increases by each iteration), with default 0.01, the tolerance, with default 1e-8, and the range of possible values you want to check(It goes from -srange to srange), with default 100
+
+It returns the solutions in a numpy array
+
+```
+
+import numpy as np
+from complex_mathematics.algebra import solve
+
+coefs = np.array([1, 0, -16])
+
+print(solve(coefs)) #solve(coefs, step=0.01, tolerance=1e-8, srange=100)
 
 ```
 
