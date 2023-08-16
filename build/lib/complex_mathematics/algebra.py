@@ -27,3 +27,26 @@ def quadratic(equation):
         return np.array([pos])
 
     return np.array([pos, neg])
+
+def solve(coefs, step=0.01, tolerance=1e-8, srange=100):
+  roots = []
+  deg = coefs.shape[0] - 1
+  i = 0
+  while i <= srange:
+    pres = 0
+    for j in range(deg+1):
+      pres += coefs[j] * i ** (deg - j)
+    if abs(pres) < tolerance:
+      roots.append(i)
+      if i == 0:
+        i += step
+        continue
+    ni = -i
+    nres = 0
+    for j in range(deg+1):
+      nres += coefs[j] * ni ** (deg - j)
+    if abs(nres) < tolerance:
+      roots.append(ni)
+    i += step
+      
+  return np.array(roots)
