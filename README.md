@@ -1,6 +1,6 @@
 # complex_mathematics
 
-![Version](https://img.shields.io/badge/version-2.5.3-blue)
+![Version](https://img.shields.io/badge/version-3.5.4-blue)
 
 ---
 
@@ -22,6 +22,12 @@ Install with:
 
 Eigenvectors:
 
+The eigenvector class has one parameter, the matrix
+
+The eigenvalues attribute holds the eigenvalues
+
+The eigenvectors attribute holds the eigenvectors
+
 ```
 
 from complex_mathematics.linalg import eigenvector
@@ -37,6 +43,10 @@ print(eig.eigenvectors)
 ```
 
 Matrix Inverse:
+
+The matrix inverse function has one parameter, the matrix
+
+It returns the inverse
 
 ```
 
@@ -57,7 +67,11 @@ print(inv)
 
 `from complex_mathematics.ml import BLANK`
 
-Linear Regression (Stochastic gradient descent):
+Linear Regression:
+
+The LinearRegression class has four parameters, the learning rate with a default 0.01, the max iterations (Only used when using an iterative optimization algorithm) with a default 10000, the tolerance, also for iterative algorithms, and optimization method with a default of stochastic gradient descent
+
+Stochastic Gradient Descent(SGD):
 
 ```
 
@@ -69,15 +83,37 @@ from complex_mathematics.ml import LinearRegression
 X = np.array([[i] for i in range(-50, 51)])
 y = np.array([2*i + 1 + random.uniform(-1, 1) for i in range(-50, 51)])
 
-model = LinearRegression() #LinearRegression(learning_rate = 0.01, max_iters = 10000, tolerance = 1e-10)
+model = LinearRegression() #LinearRegression(learning_rate = 0.01, max_iters = 10000, tolerance = 1e-10, optimization_method = "SGD")
 
-model.fit(X, y, True) #model.fit(X, Y, progress = False)
+model.fit(X, y) #model.fit(X, Y)
+
+print(model.predict(10))
+
+```
+
+Normal Equations:
+
+```
+
+import numpy as np
+import random
+from complex_mathematics.ml import LinearRegression
+    
+
+X = np.array([i for i in range(-50, 51)])
+y = np.array([2*i + 1 + random.uniform(-1, 1) for i in range(-50, 51)])
+
+model = LinearRegression(optimization_method = "NormalEquations") #LinearRegression(learning_rate = 0.01, max_iters = 10000, tolerance = 1e-10, optimization_method = "SGD")
+
+model.fit(X, y) #model.fit(X, Y)
 
 print(model.predict(10))
 
 ```
 
 K-Means Clustering:
+
+The KMeans class has four parameters, the dataset, the number of centroids(k), the max iterations, with a default of 100, and the tolerance, with a default of 10^-4
 
 ```
 
@@ -108,6 +144,10 @@ print(model.centroids, model.labels)
 `from complex_mathematics.algebra import BLANK`
 
 Quadratic Equation Solver:
+
+The quadratic function has one parameter, the equation in string form
+
+It returns the solutions in a numpy array
 
 ```
 
