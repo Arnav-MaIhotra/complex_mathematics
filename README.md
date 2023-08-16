@@ -1,6 +1,6 @@
 # complex_mathematics
 
-![Version](https://img.shields.io/badge/version-3.6.4-blue)
+![Version](https://img.shields.io/badge/version-3.7.4-blue)
 
 ---
 
@@ -175,6 +175,58 @@ print(solve(coefs)) #solve(coefs, step=0.01, tolerance=1e-8, srange=100)
 ```
 
 ---
+
+**Statistics:**
+
+`from complex_mathematics.stats import BLANK`
+
+Percent Change:
+
+The percent change function has two parameters, the previous value and the new value
+
+It returns the percent change
+
+```
+
+from complex_mathematics.stats import pchange
+
+print(pchange(100, 110)) #pchange(a, b)
+
+```
+
+Mean:
+
+The mean function has one parameter, the data
+
+It returns the mean of the data
+
+```
+
+import numpy as np
+from complex_mathematics.stats import mean
+
+a = np.array([5, 15, 20, 25])
+
+print(mean(a))
+
+```
+
+Median:
+
+The median function has one parameter, the data
+
+It returns the median of the data
+
+```
+
+import numpy as np
+from complex_mathematics.stats import median
+
+a = np.array([5, 15, 20, 25])
+
+print(median(a))
+
+```
 
 <!-- LICENSE -->
 ## License
