@@ -1,6 +1,6 @@
 # complex_mathematics
 
-![Version](https://img.shields.io/badge/version-2.4.3-blue)
+![Version](https://img.shields.io/badge/version-2.5.3-blue)
 
 ---
 
@@ -33,6 +33,21 @@ eig = eigenvector(mat) #eigenvector(matrix)
 
 print(eig.eigenvalues)
 print(eig.eigenvectors)
+
+```
+
+Matrix Inverse:
+
+```
+
+from complex_mathematics.linalg import inverse
+import numpy as np
+
+matrix = np.array([[1, 2], [3, 4]])
+
+inv = inverse(matrix)
+
+print(inv)
 
 ```
 
