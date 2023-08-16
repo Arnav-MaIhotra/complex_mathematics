@@ -57,7 +57,7 @@ class LinearRegression:
     elif self.om == "NormalEquations":
       X = np.c_[np.ones((X.shape[0], 1)), X]
 
-      des = np.linalg.inv(X.T.dot(X)).dot(X.T.dot(y))
+      des = np.linalg.inv(X.T.dot(X)).dot(X.T.dot(Y))
 
       self.bias = des[0]
       self.params = des[1:]
