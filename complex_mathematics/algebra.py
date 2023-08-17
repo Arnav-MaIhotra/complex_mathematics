@@ -48,5 +48,7 @@ def solve(coefs, step=0.01, tolerance=1e-8, srange=100):
     if abs(nres) < tolerance:
       roots.append(ni)
     i += step
+    if len(roots) == deg:
+      break
       
   return np.array(roots)
