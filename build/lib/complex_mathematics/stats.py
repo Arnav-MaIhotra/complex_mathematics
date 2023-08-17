@@ -1,4 +1,5 @@
 import numpy as np
+import math
 
 def pchange(a, b):
   return (b - a) / a * 100
@@ -21,3 +22,13 @@ def median(data):
     middle_right = n // 2
     middle_left = middle_right - 1
     return (sorted_data[middle_left] + sorted_data[middle_right]) / 2
+  
+def sd(data):
+  mu = mean(data)
+  sum = 0
+  for i in data:
+    sum += ((i - mu) ** 2)
+  sum /= (data.shape[0] - 1)
+  res = math.sqrt(sum)
+  
+  return res
