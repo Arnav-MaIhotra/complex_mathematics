@@ -92,3 +92,8 @@ class KMeans:
 
     self.centroids = centroids
     self.labels = labels
+
+
+def tokenizer(string, delimiter = " "):
+  tokens = string.split(delimiter)
+  return tokens
