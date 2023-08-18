@@ -1,6 +1,6 @@
 # complex_mathematics
 
-![Version](https://img.shields.io/badge/version-3.7.5-blue)
+![Version](https://img.shields.io/badge/version-3.8.5-blue)
 
 ---
 
@@ -29,7 +29,6 @@ The eigenvalues attribute holds the eigenvalues
 The eigenvectors attribute holds the eigenvectors
 
 ```
-
 from complex_mathematics.linalg import eigenvector
 import numpy as np
 
@@ -39,7 +38,6 @@ eig = eigenvector(mat) #eigenvector(matrix)
 
 print(eig.eigenvalues)
 print(eig.eigenvectors)
-
 ```
 
 Matrix Inverse:
@@ -49,7 +47,6 @@ The matrix inverse function has one parameter, the matrix
 It returns the inverse
 
 ```
-
 from complex_mathematics.linalg import inverse
 import numpy as np
 
@@ -58,7 +55,6 @@ matrix = np.array([[1, 2], [3, 4]])
 inv = inverse(matrix)
 
 print(inv)
-
 ```
 
 ---
@@ -74,7 +70,6 @@ The LinearRegression class has four parameters, the learning rate with a default
 Stochastic Gradient Descent(SGD):
 
 ```
-
 import numpy as np
 import random
 from complex_mathematics.ml import LinearRegression
@@ -88,13 +83,11 @@ model = LinearRegression() #LinearRegression(learning_rate = 0.01, max_iters = 1
 model.fit(X, y) #model.fit(X, Y)
 
 print(model.predict(10))
-
 ```
 
 Normal Equations:
 
 ```
-
 import numpy as np
 import random
 from complex_mathematics.ml import LinearRegression
@@ -108,7 +101,6 @@ model = LinearRegression(optimization_method = "NormalEquations") #LinearRegress
 model.fit(X, y) #model.fit(X, Y)
 
 print(model.predict(10))
-
 ```
 
 K-Means Clustering:
@@ -116,7 +108,6 @@ K-Means Clustering:
 The KMeans class has four parameters, the dataset, the number of centroids(k), the max iterations, with a default of 100, and the tolerance, with a default of 10^-4
 
 ```
-
 from complex_mathematics.ml import KMeans
 import numpy as np
 
@@ -134,7 +125,6 @@ data = np.array([
 model = KMeans(data, 6) #KMeans(data, k, max_iters=100, tolerance=1e-4)
 
 print(model.centroids, model.labels)
-
 ```
 
 ---
@@ -150,11 +140,9 @@ The quadratic function has one parameter, the equation in string form
 It returns the solutions in a numpy array
 
 ```
-
 from complex_mathematics.algebra import quadratic
 
 print(quadratic("-x^2-x+12"))
-
 ```
 
 Polynomial Solver:
@@ -164,14 +152,12 @@ The polynomial solver has four parameters, a numpy array of the coefficients of 
 It returns the solutions in a numpy array
 
 ```
-
 import numpy as np
 from complex_mathematics.algebra import solve
 
 coefs = np.array([1, 0, -16])
 
 print(solve(coefs)) #solve(coefs, step=0.01, tolerance=1e-8, srange=100)
-
 ```
 
 ---
@@ -187,11 +173,9 @@ The percent change function has two parameters, the previous value and the new v
 It returns the percent change
 
 ```
-
 from complex_mathematics.stats import pchange
 
 print(pchange(100, 110)) #pchange(a, b)
-
 ```
 
 Mean:
@@ -201,14 +185,12 @@ The mean function has one parameter, the data
 It returns the mean of the data
 
 ```
-
 import numpy as np
 from complex_mathematics.stats import mean
 
 a = np.array([5, 15, 20, 25])
 
-print(mean(a))
-
+print(mean(a)) #mean(data)
 ```
 
 Median:
@@ -218,14 +200,25 @@ The median function has one parameter, the data
 It returns the median of the data
 
 ```
-
 import numpy as np
 from complex_mathematics.stats import median
 
 a = np.array([5, 15, 20, 25])
 
-print(median(a))
+print(median(a)) #median(data)
+```
 
+Standard Deviation:
+
+The standard deviation function has one parameter, the data
+
+It returns the standard deviation of the data
+
+```
+import numpy as np
+from complex_mathematics.stats import sd
+
+print(sd(np.array([1, 2, 4, 8, 16]))) #sd(data)
 ```
 
 <!-- LICENSE -->
