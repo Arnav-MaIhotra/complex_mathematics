@@ -16,6 +16,10 @@ class complex:
     return math.atan(self.bi/self.a)
 
 def cmultiply(num1, num2):
-  a = -(num1[1]*num2[1]) + num1[0]*num2[0]
-  bi = num1[1]*num2[0] + num1[0]*num2[1]
-  return np.array([a, bi])
+  a1 = num1.a
+  a2 = num2.a
+  bi1 = num1.bi
+  bi2 = num2.bi
+  a = -(bi1*bi2) + a1*a2
+  bi = bi1*a2 + a1*bi2
+  return complex(a, bi)
