@@ -1,6 +1,6 @@
 # complex_mathematics
 
-![Version](https://img.shields.io/badge/version-3.9.5-blue)
+![Version](https://img.shields.io/badge/version-3.10.5-blue)
 
 ---
 
@@ -229,6 +229,28 @@ import numpy as np
 from complex_mathematics.stats import sd
 
 print(sd(np.array([1, 2, 4, 8, 16]))) #sd(data)
+```
+
+---
+
+**Complex Numbers:**
+
+`from complex_mathematics.complex import BLANK`
+
+Complex Number:
+
+The complex number class has two parameters, the real part and the imaginary part
+
+It has three functions: mod(), which gives the modulus of the number; arg(), which gives the argument of the number; and conjugate(), which gives the conjugate of the number.
+
+```
+from complex_mathematics.complex import complex
+
+num = complex(4, 6)
+
+print(num.mod())
+print(num.arg())
+print(num.conjugate())
 ```
 
 <!-- LICENSE -->
