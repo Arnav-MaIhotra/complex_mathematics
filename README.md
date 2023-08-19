@@ -1,6 +1,6 @@
 # complex_mathematics
 
-![Version](https://img.shields.io/badge/version-3.8.5-blue)
+![Version](https://img.shields.io/badge/version-3.9.5-blue)
 
 ---
 
@@ -125,6 +125,16 @@ data = np.array([
 model = KMeans(data, 6) #KMeans(data, k, max_iters=100, tolerance=1e-4)
 
 print(model.centroids, model.labels)
+```
+
+Tokenizer:
+
+The tokenizer function has two parameters, the string that will be tokenized, and the delimiter, with a default of " "
+
+```
+from complex_mathematics.ml import tokenizer
+
+print(tokenizer("This should have 5 tokens")) #tokenizer(string, delimiter = " ")
 ```
 
 ---
