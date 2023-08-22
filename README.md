@@ -1,6 +1,6 @@
 # complex_mathematics
 
-![Version](https://img.shields.io/badge/version-3.10.5-blue)
+![Version](https://img.shields.io/badge/version-3.10.6-blue)
 
 ---
 
@@ -251,6 +251,22 @@ num = complex(4, 6)
 print(num.mod())
 print(num.arg())
 print(num.conjugate())
+```
+
+Complex Multiplication:
+
+The complex multiplication function has two parameters, the two complex numbers that will be multiplied.
+
+```
+from complex_mathematics.complex import complex
+from complex_mathematics.complex import cmultiply
+
+num1 = complex(4, 6)
+num2 = complex(1, 2)
+
+res = cmultiply(num1, num2)
+
+print(res.a, res.bi)
 ```
 
 <!-- LICENSE -->
