@@ -1,6 +1,6 @@
 # complex_mathematics
 
-![Version](https://img.shields.io/badge/version-3.10.6-blue)
+![Version](https://img.shields.io/badge/version-3.11.6-blue)
 
 ---
 
@@ -157,7 +157,7 @@ print(quadratic("-x^2-x+12"))
 
 Polynomial Solver:
 
-The polynomial solver has four parameters, a numpy array of the coefficients of the equation, the step (how much the current value increases by each iteration), with default 0.01, the tolerance, with default 1e-8, and the range of possible values you want to check(It goes from -srange to srange), with default 100
+The polynomial solver has one parameter, a numpy array of the coefficients of the equation
 
 It returns the solutions in a numpy array
 
@@ -229,6 +229,20 @@ import numpy as np
 from complex_mathematics.stats import sd
 
 print(sd(np.array([1, 2, 4, 8, 16]))) #sd(data)
+```
+
+Factors:
+
+The factor function has one parameter, the number that is to be factored
+
+It returns a numpy array of the factors of that number
+
+It includes negative factors
+
+```
+from complex_mathematics.stats import factor
+
+print(factor(80))
 ```
 
 ---
