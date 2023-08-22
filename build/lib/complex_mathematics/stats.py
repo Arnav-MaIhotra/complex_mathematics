@@ -32,3 +32,18 @@ def sd(data):
   res = math.sqrt(sum)
   
   return res
+
+
+def factor(num):
+    factors = []
+    if num < 0:
+      num *= -1
+    i = 1
+    while i <= num/2:
+      if num % i == 0:
+        factors.append(i)
+        factors.append(-i)
+      i += 1
+    factors.append(num)
+    factors.append(-num)
+    return np.array(factors)

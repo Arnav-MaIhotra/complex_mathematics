@@ -28,27 +28,49 @@ def quadratic(equation):
 
     return np.array([pos, neg])
 
-def solve(coefs, step=0.01, tolerance=1e-8, srange=100):
+def solve(coefs):
+  def factor(num):
+    factors = []
+    if num < 0:
+      num *= -1
+    i = 1
+    while i <= num/2:
+      if num % i == 0:
+        factors.append(i)
+        factors.append(-i)
+      i += 1
+    factors.append(num)
+    factors.append(-num)
+    return factors
   roots = []
+  
   deg = coefs.shape[0] - 1
-  i = 0
-  while i <= srange:
-    pres = 0
+
+  efactors = factor(coefs[-1])
+
+  if coefs[0] == 1 or coefs[0] == -1:
+    for i in efactors:
+      res = 0
+      for j in range(deg+1):
+        res += coefs[j] * i ** (deg - j)
+
+      if res == 0:
+        roots.append(i)
+    return np.array(roots)
+
+  lfactors = factor(coefs[0])
+
+  proots = []
+
+  for i in efactors:
+    for j in lfactors:
+      proots.append(i/j)
+
+  for i in proots:
+    res = 0
     for j in range(deg+1):
-      pres += coefs[j] * i ** (deg - j)
-    if abs(pres) < tolerance:
+      res += coefs[j] * i ** (deg - j)
+    if res == 0:
       roots.append(i)
-      if i == 0:
-        i += step
-        continue
-    ni = -i
-    nres = 0
-    for j in range(deg+1):
-      nres += coefs[j] * ni ** (deg - j)
-    if abs(nres) < tolerance:
-      roots.append(ni)
-    i += step
-    if len(roots) == deg:
-      break
-      
-  return np.array(roots)
+
+  return np.array(list(set(roots)))
