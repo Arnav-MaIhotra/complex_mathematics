@@ -73,4 +73,7 @@ def solve(coefs):
     if res == 0:
       roots.append(i)
 
+    if len(roots) == deg:
+      break
+
   return np.array(list(set(roots)))
