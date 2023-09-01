@@ -1,6 +1,6 @@
 # complex_mathematics
 
-![Version](https://img.shields.io/badge/version-3.11.6-blue)
+![Version](https://img.shields.io/badge/version-3.11.7-blue)
 
 ---
 
