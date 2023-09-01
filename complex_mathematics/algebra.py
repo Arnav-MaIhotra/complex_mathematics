@@ -77,3 +77,13 @@ def solve(coefs):
       break
 
   return np.array(list(set(roots)))
+
+
+def ln(num):
+  return math.log(num, math.e)
+
+def exp(num):
+  return pow(math.e, num)
+
+def log(num, base=10):
+  return math.log(num, base)

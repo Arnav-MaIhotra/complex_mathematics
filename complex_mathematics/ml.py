@@ -97,3 +97,15 @@ class KMeans:
 def tokenizer(string, delimiter = " "):
   tokens = string.split(delimiter)
   return tokens
+
+class LogarithmicRegression:
+  def __init__(self, X, y):
+    lnx = [ln(i) for i in X]
+    lny = [ln(i) for i in y]
+
+    slope = 0
+
+    slope = (lny[0]-lny[-1])/(lnx[0]-lnx[-1])
+    
+    bias = sum(lny)/len(lny)-slope*sum(lnx)/len(lnx)
+    self.a, self.b = slope, bias
