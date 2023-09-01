@@ -1,6 +1,6 @@
 # complex_mathematics
 
-![Version](https://img.shields.io/badge/version-3.11.7-blue)
+![Version](https://img.shields.io/badge/version-3.12.8-blue)
 
 ---
 
@@ -137,6 +137,25 @@ from complex_mathematics.ml import tokenizer
 print(tokenizer("This should have 5 tokens")) #tokenizer(string, delimiter = " ")
 ```
 
+Logarithmic Regression:
+
+Logarithmic regression fits a logarithmic line to data, of the form f(x) = a*ln(x)+b
+
+Unfortunately, for now, the class only takes in two dimensional lists, so for those of you wanting to use numpy arrays and multi-dimensional datasets, sorry
+
+It takes in two parameters, the x values and the y values
+
+```
+from complex_mathematics.ml import LogarithmicRegression
+
+
+X = [2, 3, 4, 5, 6]
+y = [0.117, 0.152, 0.193, 0.232, 0.266]
+
+model = LogarithmicRegression(X, y)
+print(model.a, model.b)
+```
+
 ---
 
 **Algebra:**
@@ -168,6 +187,37 @@ from complex_mathematics.algebra import solve
 coefs = np.array([1, 0, -16])
 
 print(solve(coefs)) #solve(coefs, step=0.01, tolerance=1e-8, srange=100)
+```
+
+Natural Log:
+
+The natural log function takes in one parameter, the number
+
+```
+from complex_mathematics.algebra import ln
+
+print(ln(15))
+
+```
+
+E to the x power:
+
+The exp() function takes in one parameter, the number
+
+```
+from complex_mathematics.algebra import exp
+
+print(exp(3)
+```
+
+Common Logarithm:
+
+The log() function takes in one parameter, the number
+
+```
+from complex_mathematics.algebra import log
+
+print(log(3)
 ```
 
 ---
