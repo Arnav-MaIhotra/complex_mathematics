@@ -100,8 +100,8 @@ def tokenizer(string, delimiter = " "):
 
 class LogarithmicRegression:
   def __init__(self, X, y):
-    lnx = [ln(i) for i in X]
-    lny = [ln(i) for i in y]
+    lnx = [math.log(i, math.e) for i in X]
+    lny = [math.log(i, math.e) for i in y]
 
     slope = 0
 
