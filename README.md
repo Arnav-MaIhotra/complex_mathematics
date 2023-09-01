@@ -197,7 +197,6 @@ The natural log function takes in one parameter, the number
 from complex_mathematics.algebra import ln
 
 print(ln(15))
-
 ```
 
 E to the x power:
@@ -207,7 +206,7 @@ The exp() function takes in one parameter, the number
 ```
 from complex_mathematics.algebra import exp
 
-print(exp(3)
+print(exp(3))
 ```
 
 Common Logarithm:
@@ -217,7 +216,7 @@ The log() function takes in one parameter, the number
 ```
 from complex_mathematics.algebra import log
 
-print(log(3)
+print(log(3))
 ```
 
 ---
