@@ -109,3 +109,40 @@ class LogarithmicRegression:
     
     bias = sum(lny)/len(lny)-slope*sum(lnx)/len(lnx)
     self.a, self.b = slope, bias
+
+  
+
+class PolynomialRegression:
+    def __init__(self, degree=2, learning_rate=0.001, max_iters=10000):
+        self.degree = degree
+        self.learning_rate = learning_rate
+        self.max_iters = max_iters
+        self.params = None
+
+    def _create_polynomial_features(self, X):
+        num_samples, num_features = X.shape
+        poly_features = []
+
+        for i in range(num_features):
+            for j in range(self.degree + 1):
+                poly_features.append(X[:, i]**j)
+
+        return np.column_stack(poly_features)
+
+    def _compute_gradient(self, X, y, y_pred):
+        error = y_pred - y
+        gradient = np.dot(X.T, error) / X.shape[0]
+        return gradient
+
+    def fit(self, X, y):
+        X_poly = self._create_polynomial_features(X)
+        self.params = np.random.randn(X_poly.shape[1])
+
+        for _ in range(self.max_iters):
+            y_pred = np.dot(X_poly, self.params)
+            gradient = self._compute_gradient(X_poly, y, y_pred)
+            self.params -= self.learning_rate * gradient
+
+    def predict(self, X):
+        X_poly = self._create_polynomial_features(X)
+        return np.dot(X_poly, self.params)
