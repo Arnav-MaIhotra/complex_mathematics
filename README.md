@@ -1,6 +1,6 @@
 # complex_mathematics
 
-![Version](https://img.shields.io/badge/version-3.12.8-blue)
+![Version](https://img.shields.io/badge/version-3.13.8-blue)
 
 ---
 
@@ -154,6 +154,46 @@ y = [0.117, 0.152, 0.193, 0.232, 0.266]
 
 model = LogarithmicRegression(X, y)
 print(model.a, model.b)
+```
+
+Polynomial Regression:
+
+Polynomial regression fits an n degree polynomial function
+
+The PolynomialRegression class has three parameters, the degree, the learning rate with a default 0.001, and the max iterations with a default 10000
+
+```
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from complex_mathematics.ml import PolynomialRegression
+
+np.random.seed(0)
+X = np.random.rand(80, 2)
+y = np.sum(X, axis=1) + np.random.normal(0, 0.1, X.shape[0])
+
+poly_reg = PolynomialRegression(degree=2)
+
+poly_reg.fit(X, y)
+
+x1_test = np.linspace(0, 1, 20)
+x2_test = np.linspace(0, 1, 20)
+X1_test, X2_test = np.meshgrid(x1_test, x2_test)
+X_test = np.column_stack((X1_test.ravel(), X2_test.ravel()))
+
+y_pred = poly_reg.predict(X_test)
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+scatter = ax.scatter(X[:, 0], X[:, 1], y, c='gray', label='Actual Data')
+
+surface = ax.plot_surface(X1_test, X2_test, y_pred.reshape(X1_test.shape), color='red', alpha=0.5, label='Polynomial Regression')
+
+ax.set_xlabel('Feature 1')
+ax.set_ylabel('Feature 2')
+ax.set_zlabel('Target')
+
+plt.show()
 ```
 
 ---
