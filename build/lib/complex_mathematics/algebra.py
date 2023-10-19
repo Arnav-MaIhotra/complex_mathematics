@@ -1,6 +1,7 @@
 import re
 import math
 import numpy as np
+import matplotlib.pyplot as plt
 
 def quadratic(equation):
     equation = equation.replace(" ", "")
@@ -87,3 +88,15 @@ def exp(num):
 
 def log(num, base=10):
   return math.log(num, base)
+
+
+def parametric_graph(x, y, tmin, tmax):
+  ts = np.linspace(tmin, tmax, 100)
+
+  xpoints = np.apply_along_axis(x, 0, ts)
+
+  ypoints = np.apply_along_axis(y, 0, ts)
+
+  plt.plot(xpoints, ypoints)
+
+  plt.show()

@@ -3,10 +3,10 @@ from setuptools import setup, find_packages
 
 setup(
     name='complex_mathematics',
-    version='3.13.8',
+    version='3.14.8',
     packages=find_packages(),
     install_requires=[
-        'numpy', 'scipy'
+        'numpy', 'scipy', 'matplotlib'
     ],
     license='MIT',
     author="Arnav Malhotra",
