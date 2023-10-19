@@ -1,6 +1,6 @@
 # complex_mathematics
 
-![Version](https://img.shields.io/badge/version-3.13.8-blue)
+![Version](https://img.shields.io/badge/version-3.14.8-blue)
 
 ---
 
@@ -257,6 +257,23 @@ The log() function takes in one parameter, the number
 from complex_mathematics.algebra import log
 
 print(log(3))
+```
+
+Parametric Equation Grapher:
+
+The parametric_graph() function takes in 4 parameters, the x function, the y function, the t minimum, and the t maximum.
+
+```
+from complex_mathematics.algebra import parametric_graph
+import numpy as np
+
+def x(t):
+  return ((np.cos(t))**3)*(5*(np.sin(t))**2-(np.cos(t))**2)
+
+def y(t):
+  return ((np.sin(t))**3)*(5*(np.cos(t))**2-(np.sin(t))**2)
+
+parametric_graph(x, y, 0, 6.28)
 ```
 
 ---
