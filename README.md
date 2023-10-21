@@ -1,6 +1,6 @@
 # complex_mathematics
 
-![Version](https://img.shields.io/badge/version-3.14.8-blue)
+![Version](https://img.shields.io/badge/version-4.14.8-blue)
 
 ---
 
@@ -65,24 +65,24 @@ print(inv)
 
 Linear Regression:
 
-The LinearRegression class has four parameters, the learning rate with a default 0.01, the max iterations (Only used when using an iterative optimization algorithm) with a default 10000, the tolerance, also for iterative algorithms, and optimization method with a default of stochastic gradient descent
+The LinearRegression class has four parameters, the learning rate with a default 0.01, the max iterations with a default 10000, the tolerance, and optimization method with a default of batch gradient descent
 
-Stochastic Gradient Descent(SGD):
+Batch Gradient Descent:
 
 ```
 import numpy as np
 import random
 from complex_mathematics.ml import LinearRegression
-    
+
 
 X = np.array([[i] for i in range(-50, 51)])
 y = np.array([2*i + 1 + random.uniform(-1, 1) for i in range(-50, 51)])
 
-model = LinearRegression() #LinearRegression(learning_rate = 0.01, max_iters = 10000, tolerance = 1e-10, optimization_method = "SGD")
+model = LinearRegression(learning_rate = 0.00001)
 
-model.fit(X, y) #model.fit(X, Y)
+model.fit(X, y)
 
-print(model.predict(10))
+print(model.predict(np.array([10])))
 ```
 
 Normal Equations:
@@ -96,11 +96,11 @@ from complex_mathematics.ml import LinearRegression
 X = np.array([i for i in range(-50, 51)])
 y = np.array([2*i + 1 + random.uniform(-1, 1) for i in range(-50, 51)])
 
-model = LinearRegression(optimization_method = "NormalEquations") #LinearRegression(learning_rate = 0.01, max_iters = 10000, tolerance = 1e-10, optimization_method = "SGD")
+model = LinearRegression(optimization_method = "NormalEquations")
 
-model.fit(X, y) #model.fit(X, Y)
+model.fit(X, y)
 
-print(model.predict(10))
+print(model.predict(np.array([10])))
 ```
 
 K-Means Clustering:
