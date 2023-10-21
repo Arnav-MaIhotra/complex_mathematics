@@ -1,69 +1,40 @@
 import numpy as np
 import math
 
+
 class LinearRegression:
+    def __init__(self, learning_rate=0.01, max_iters=10000, tolerance = 1e-10, optimization_method = "GradientDescent"):
+        self.learning_rate = learning_rate
+        self.max_iters = max_iters
+        self.tolerance = tolerance
+        self.om = optimization_method
+        self.params = None
 
-  def __init__(self, learning_rate = 0.01, max_iters = 100000, tolerance = 1e-10, optimization_method = "SGD"):
-    self.learning_rate = learning_rate
-    self.max_iters = max_iters
-    self.tolerance = tolerance
-    self.params = None
-    self.bias = None
-    self.om = optimization_method
-
-  def h(self, X):
-        return np.dot(X, self.params) + self.bias
-
-  def j(self, X, y):
-      se = np.mean((self.h(X) - y) ** 2)/2
-      return se
-
-  def fit(self, X, Y):
-    if self.om == "SGD":
-      self.num_features = X.shape[1]
-      self.num_samples = X.shape[0]
-
-      self.params = np.zeros(self.num_features)
-      self.bias = 0
-
-      if Y.size != self.num_samples:
-          raise ValueError("Number of samples in X and Y do not match.")
-
-      iters = 0
-
-      prev_cost = float('inf')
-
-      for _ in range(self.max_iters):
-        index = np.random.randint(self.num_samples)
+    def fit(self, X, y):
         
-        x = X[index]
-        y = Y[index]
+        if self.om == "GradientDescent":
+          self.params = np.zeros(X.shape[1]+1)
+          X = np.c_[np.ones((X.shape[0], 1)), X]
+          perror = 0
 
-        predicted = np.dot(x, self.params) + self.bias
+          for _ in range(self.max_iters):
+              gradient = X.T.dot(X.dot(self.params)-y)
+              self.params -= self.learning_rate*gradient
+              error = 0.5*(X.dot(self.params)-y).dot(X.dot(self.params)-y)
+              if abs(perror-error) < self.tolerance:
+                  break
+              else:
+                  perror = error
 
-        grad_coef = (2/self.num_samples) * np.dot(x.T, predicted - y)
-        grad_inte = (2/self.num_samples) * np.sum(predicted - y)
+        elif self.om == "NormalEquations":
+          X = np.c_[np.ones((X.shape[0], 1)), X]
 
-        self.params -= self.learning_rate * grad_coef
-        self.bias -= self.learning_rate * grad_inte
+          des = np.linalg.inv(X.T.dot(X)).dot(X.T.dot(y))
+          self.params = des
 
-        current_cost = self.j(X, Y)
+    def predict(self, X):
+        return X.dot(self.params[1:])+self.params[0]
 
-        if abs(current_cost - prev_cost) < self.tolerance:
-            break
-
-        prev_cost = current_cost
-
-    elif self.om == "NormalEquations":
-      X = np.c_[np.ones((X.shape[0], 1)), X]
-
-      des = np.linalg.inv(X.T.dot(X)).dot(X.T.dot(Y))
-
-      self.bias = des[0]
-      self.params = des[1:]
-
-  def predict(self, x):
-    return np.dot(x, self.params) + self.bias
   
 
 class KMeans:
