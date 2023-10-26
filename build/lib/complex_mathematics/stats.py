@@ -47,3 +47,12 @@ def factor(num):
     factors.append(num)
     factors.append(-num)
     return np.array(factors)
+
+def gaussian(X):
+    def p(x):
+        s = np.std(X)
+        m = np.mean(X)
+        res = 1/(s*math.sqrt(2*math.pi))
+        res *= np.exp(-0.5*((x-m)/s)**2)
+        return res
+    return p
