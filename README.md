@@ -1,10 +1,10 @@
 # complex_mathematics
 
-![Version](https://img.shields.io/badge/version-4.14.8-blue)
+![Version](https://img.shields.io/badge/version-4.15.8-blue)
 
 ---
 
-**complex_mathematics is a Python module that can be used for many complex math related problems, with concepts from many different topics in mathematics, such as calculus, linear algebra, geometry, algebra, and more. It also has machine learning algorithms such as linear regression and K-Nearest-Neighbors.**
+**complex_mathematics is a Python module that can be used for many complex math related problems, with concepts from many different topics in mathematics, such as calculus, linear algebra, geometry, algebra, statistics, and more. It also has machine learning algorithms such as linear regression and K-Nearest-Neighbors.**
 
 ---
 
@@ -349,6 +349,29 @@ It includes negative factors
 from complex_mathematics.stats import factor
 
 print(factor(80))
+```
+
+Gaussian Calculator:
+
+The gaussian function takes in one parameter, the data, and gives you function that calculates the probability of a number appearing based on the frequency of numbers in the data.
+
+```
+from complex_mathematics.stats import gaussian
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+data = np.array([1, 2, 2, 3, 3, 3, 4, 4, 5])
+
+p = gaussian(data)
+
+x = np.arange(0, 6, 0.1) 
+
+y = np.apply_along_axis(p, 0, x)
+
+plt.plot(x, y)
+
+plt.show()
 ```
 
 ---
