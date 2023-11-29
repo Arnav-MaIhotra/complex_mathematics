@@ -1,6 +1,6 @@
 # complex_mathematics
 
-![Version](https://img.shields.io/badge/version-4.15.8-blue)
+![Version](https://img.shields.io/badge/version-4.17.10-blue)
 
 ---
 
@@ -196,6 +196,27 @@ ax.set_zlabel('Target')
 plt.show()
 ```
 
+Outlier Detection:
+
+The outliers function takes in a pandas DataFrame that is the dataset and returns a numpy array with the indices of the potential outliers, it also takes in a number that can be used to identify if something is an outlier
+
+```
+import pandas as pd
+from complex_mathematics.ml import outliers
+
+df = pd.read_csv("https://raw.githubusercontent.com/Arnav-MaIhotra/GPA-IQ/main/gpa_iq.csv")
+
+df = df.drop(["obs", "concept"], axis=1)
+
+df["gender"] = df["gender"] - 1
+
+df = df.reindex(columns=['gpa', 'gender', 'iq'])
+
+outliers_ = outliers(df, 1.5)
+
+print(outliers_)
+```
+
 ---
 
 **Algebra:**
@@ -216,7 +237,7 @@ print(quadratic("-x^2-x+12"))
 
 Polynomial Solver:
 
-The polynomial solver has one parameter, a numpy array of the coefficients of the equation
+The polynomial solver has three parameters, a numpy array of the coefficients of the equation, the tolerance, and the max iterations
 
 It returns the solutions in a numpy array
 
@@ -226,7 +247,7 @@ from complex_mathematics.algebra import solve
 
 coefs = np.array([1, 0, -16])
 
-print(solve(coefs)) #solve(coefs, step=0.01, tolerance=1e-8, srange=100)
+print(solve(coefs, 1000, 1e-6))
 ```
 
 Natural Log:
@@ -241,7 +262,7 @@ print(ln(15))
 
 E to the x power:
 
-The exp() function takes in one parameter, the number
+The exponential function takes in one parameter, the number
 
 ```
 from complex_mathematics.algebra import exp
@@ -251,7 +272,7 @@ print(exp(3))
 
 Common Logarithm:
 
-The log() function takes in one parameter, the number
+The log function takes in one parameter, the number
 
 ```
 from complex_mathematics.algebra import log
@@ -261,7 +282,7 @@ print(log(3))
 
 Parametric Equation Grapher:
 
-The parametric_graph() function takes in 4 parameters, the x function, the y function, the t minimum, and the t maximum.
+The parametric_graph function takes in 4 parameters, the x function, the y function, the t minimum, and the t maximum.
 
 ```
 from complex_mathematics.algebra import parametric_graph
@@ -274,6 +295,18 @@ def y(t):
   return ((np.sin(t))**3)*(5*(np.cos(t))**2-(np.sin(t))**2)
 
 parametric_graph(x, y, 0, 6.28)
+```
+
+Polynomial Compute:
+
+The compute function takes in two parameters, the coefficients of the polynomial and the x value
+
+```
+import numpy as np
+from complex_mathematics.algebra import compute
+
+coefs = np.array([1, 2, 3, 4, 5])
+print(compute(coefs, 5))
 ```
 
 ---
@@ -410,6 +443,20 @@ num2 = complex(1, 2)
 res = cmultiply(num1, num2)
 
 print(res.a, res.bi)
+```
+
+**Calculus:**
+
+Derivative of a Polynomial:
+
+The derivative function takes in the coefficients of a polynomial and returns the derivative's coefficients
+
+```
+import numpy as np
+from complex_mathematics.calculus import derivative
+
+coefs = np.array([1, 2, 3, 4, 5])
+print(derivative(coefs))
 ```
 
 <!-- LICENSE -->
