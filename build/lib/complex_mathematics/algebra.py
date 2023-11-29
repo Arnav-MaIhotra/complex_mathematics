@@ -82,7 +82,6 @@ def solve(coefs, max_iters, tolerance):
     while compute(d, x) == 0:
       x = random.uniform(-ccoefs[-1], ccoefs[-1])
     for i in range(max_iters):
-      print(compute(ccoefs, x)/compute(d, x))
       if abs(compute(ccoefs, x)/compute(d, x)) < tolerance:
         x -= compute(ccoefs, x)/compute(d, x)
         break
