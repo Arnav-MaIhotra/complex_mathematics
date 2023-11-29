@@ -10,8 +10,8 @@ setup(
     ],
     license='MIT',
     author="Arnav Malhotra",
-    author_email="emumalhotra@gmail.com",
+    author_email="amalhotra.business@gmail.com",
     description="Many complex math features.",
-    long_description="Many advanced math features and topics like linear algebra, geometry, calculus, algebra, and machine learning algorithms.",
+    long_description="Collection of numerical algorithms for algebra, statistics, machine learning, calculus, and more.",
     url="https://github.com/Arnav-MaIhotra/complex_mathematics",
 )
