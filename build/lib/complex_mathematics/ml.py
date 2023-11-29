@@ -117,3 +117,46 @@ class PolynomialRegression:
     def predict(self, X):
         X_poly = self._create_polynomial_features(X)
         return np.dot(X_poly, self.params)
+    
+def outliers(df, outlier_coefficient):
+    XY = df.values
+
+    dists = []
+
+    for i in XY:
+        dist = []
+        for j in XY:
+            if np.array_equal(i, j):
+                continue
+            mag = math.sqrt((i-j).dot(i-j))
+            dist.append(mag)
+        dists.append(dist)
+
+    dists = np.array(dists)
+
+    avg_dists = np.zeros(dists.shape[0])
+
+    count = 0
+
+    for i in dists:
+        m = np.mean(i)
+        avg_dists[count] = m
+        count += 1
+
+    q1 = np.percentile(avg_dists, 25)
+    q3 = np.percentile(avg_dists, 75)
+
+    IQR = q3-q1
+
+    max_ = q3+outlier_coefficient*IQR
+
+    count = 0
+
+    indices = []
+
+    for i in avg_dists:
+        if i > max_:
+            indices.append(count)
+        count += 1
+
+    return np.array(indices)
